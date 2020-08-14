@@ -1,4 +1,6 @@
 import * as _ from 'lodash';
+import Singleton from './Singleton';
+import Field from './Field';
 
 // Boolean
 let muted: boolean = true;
@@ -95,8 +97,6 @@ rect.toString = function() {
 
 console.log(rect.toString());
 
-import Singleton from './Singleton';
-
 const a = Singleton.getInstance();
 const b = Singleton.getInstance();
 
@@ -155,3 +155,38 @@ const display = new PriceDisplay();
 value.subscribe(display);
 
 setTimeout(() => value.unsubscribe(display), 3000);
+
+
+  
+function RequiredFieldDecorator(field: Field): Field {
+  let validate = field.validate;
+
+  field.validate = function() {
+      validate();
+      let value = field.input.value;
+      if (!value) {
+          field.errors.push('Requerido');
+      }
+  };
+
+  return field;
+}
+
+function EmailFieldDecorator(field: Field): Field {
+  let validate = field.validate;
+
+  field.validate = function() {
+      validate();
+      let value = field.input.value;
+
+      if (value.indexOf('@') === -1) {
+          field.errors.push('Debe ser un email');
+      }
+  };
+
+  return field;
+}
+
+let field = new Field(document.querySelector('#email'));
+field = RequiredFieldDecorator(field);
+field = EmailFieldDecorator(field);
