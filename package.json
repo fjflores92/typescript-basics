@@ -1,0 +1,19 @@
+{
+  "name": "typescript-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./ts/index.ts",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "Francisco Flores <fflores.ic.ipn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.7"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}
