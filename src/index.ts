@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 // Boolean
 let muted: boolean = true;
 muted = false;
@@ -23,13 +25,13 @@ peopleAndNumbers.push(9001);
 
 // Enum
 enum Color {
-  Rojo = 'Rojo',
-  Verde = 'Verde',
-  Azul = 'Azul',
-  Amarillo = 'Amarillo',
+  Red = 'Rojo',
+  Green = 'Verde',
+  Blue = 'Azul',
+  Yellow = 'Amarillo',
 }
 
-let colorFavorito: Color = Color.Amarillo;
+let colorFavorito: Color = Color.Yellow;
 console.log(`Mi color favorito es ${colorFavorito}`);
 
 // Any
@@ -46,7 +48,7 @@ function add(a: number, b: number): number {
 
 const sum = add(4, 6);
 
-function createAdder(a: number): (number) => number {
+function createAdder(a: number): (arg0: number) => number {
   return function(b: number) {
     return b + a;
   };

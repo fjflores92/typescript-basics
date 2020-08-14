@@ -2,18 +2,28 @@
   "name": "typescript-basics",
   "version": "1.0.0",
   "description": "",
-  "main": "./ts/index.ts",
+  "private": true,
   "scripts": {
+    "build": "webpack --mode production",
+    "start-webpack": "webpack-dev-server --open --mode development",
     "start": "parcel index.html"
   },
   "keywords": [],
   "author": "Francisco Flores <fflores.ic.ipn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash": "^4.14.159",
     "parcel-bundler": "^1.12.4",
-    "typescript": "^3.9.7"
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "browserslist": [
     "last 1 Chrome version"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
 }
